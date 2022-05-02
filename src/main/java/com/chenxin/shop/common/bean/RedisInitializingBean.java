@@ -3,8 +3,8 @@ package com.chenxin.shop.common.bean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-import com.chenxin.shop.modules.entity.Users;
-import com.chenxin.shop.modules.service.UserCacheService;
+import com.chenxin.shop.modules.test.entity.Users;
+import com.chenxin.shop.modules.test.service.UserCacheService;
 
 import javax.annotation.PostConstruct;
 
@@ -24,6 +24,12 @@ public class RedisInitializingBean {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
+
+    /**
+     * @Date: 2022/5/2 15:17
+     * @Description: 布隆过滤器初始化
+     * @Return:  * @return : void
+     */
     @PostConstruct
     public void init() {
         userCacheService.setUsers(new Users().setName("Michael").setAddress("China").setOrderId(001));

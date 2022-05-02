@@ -28,7 +28,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @Date: 2021/12/24 9:10
  * @Version 1.0
  */
-@ControllerAdvice(value = "com.chenxin.shop.modules.controller")
+@ControllerAdvice(basePackages = {"com.chenxin.shop.modules.test.controller",
+        "com.chenxin.shop.modules.pms.controller",
+        "com.chenxin.shop.modules.ums.controller"})
 @Slf4j
 public class CustomExceptionHandler implements ResponseBodyAdvice<Object> {
 
@@ -93,10 +95,10 @@ public class CustomExceptionHandler implements ResponseBodyAdvice<Object> {
     }
 
     /**
+     * @param e :
      * @Date: 2022/4/30 14:18
      * @Description: BindException是@Validation单独使用校验失败时产生的异常
-     * @param e :
-     * @Return:  * @return : com.chenxin.shop.dto.CommonResult
+     * @Return: * @return : com.chenxin.shop.dto.CommonResult
      */
     @ResponseBody
     @ExceptionHandler(value = BindException.class)
@@ -106,7 +108,7 @@ public class CustomExceptionHandler implements ResponseBodyAdvice<Object> {
         if (bindingResult.hasErrors()) {
             FieldError fieldError = bindingResult.getFieldError();
             if (fieldError != null) {
-                message = fieldError.getField()+fieldError.getDefaultMessage();
+                message = fieldError.getField() + fieldError.getDefaultMessage();
             }
         }
         return CommonResult.validateFailed(message);

@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan({"com.chenxin.shop.modules.dao"})
+@MapperScan({"com.chenxin.shop.modules.test.dao"})
 public class MyBatisConfig {
     @Bean
     public PaginationInterceptor paginationInterceptor() {

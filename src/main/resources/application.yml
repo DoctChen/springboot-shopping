@@ -1,0 +1,43 @@
+
+server:
+  port: 8081
+
+spring:
+  application:
+    name: springboot-shopping
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+redis:
+  db: shopping
+  key:
+    user: 'Guess'
+    resource: 'My:Name'
+  expire:
+    time: 36000
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    # 使用 PARTIAL 这一个设置值时，对于其中没有"association"或"collection"的 resultMap 而言
+    # 依然会试图对所有的属性执行自动映射；而如果其中一旦包含了"association"或"collection"
+    # 则只会对手动配置了映射关系的属性进行映射，其它的属性都不会执行自动映射。
+    auto-mapping-behavior: partial
+    map-underscore-to-camel-case: true
+
+# 全系统主键生成策略为雪花id
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: assign_id
+
+# 阿里云oss信息
+aliyun:
+  access-id:
+  access-secret:
+  bucket: open-kms
+  endpoint: oss-cn-shanghai.aliyuncs.com
+
