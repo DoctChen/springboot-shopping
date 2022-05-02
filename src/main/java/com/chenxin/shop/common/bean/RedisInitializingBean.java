@@ -3,8 +3,8 @@ package com.chenxin.shop.common.bean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
-import com.chenxin.shop.modules.test.entity.Users;
-import com.chenxin.shop.modules.test.service.UserCacheService;
+import com.chenxin.shop.modules.demo.entity.Users;
+import com.chenxin.shop.modules.demo.service.UserCacheService;
 
 import javax.annotation.PostConstruct;
 
