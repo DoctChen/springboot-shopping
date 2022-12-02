@@ -36,8 +36,8 @@ mybatis-plus:
 
 # 阿里云oss信息
 aliyun:
-  access-id: LTAI5tJ3odeXjRiPbQJG5uMn
-  access-secret: 23vhfBhgJZk6S3PSZyXd75IqKoiu6h
+  access-id: 
+  access-secret: 
   bucket: open-kms
   endpoint: oss-cn-shanghai.aliyuncs.com
 
